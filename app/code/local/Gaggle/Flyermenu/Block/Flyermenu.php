@@ -12,14 +12,29 @@ class Gaggle_Flyermenu_Block_Flyermenu extends Mage_Core_Block_Template{
 		$html=$this->_getHtml($rootCategory);
 		return $html;
 	}
+	function getSortedChildCategories($category)
+	{
+		$childrenArray = explode(',',$category->getChildren());
+	  // remove parent id from array in case it gets returned
+	  if ($key = array_search($category->getId(), $childrenArray)) {
+		unset($childrenArray[$key]);
+	  } 
+	  $collection = Mage::getModel('catalog/category')->getCollection()
+		->addAttributeToFilter('entity_id', array('in' => $childrenArray))
+		->addAttributeToSelect('*')
+		->setOrder('position','ASC');
+
+	
+	  return $collection;    
+	}
 	protected function _getHtml($category)
 	{
-		$children=$category->getChildren();
+		$children=$this->getSortedChildCategories($category);
 		$parentLevel = $category->getLevel();
 		$html='<ul >';
-		foreach(explode(',',$children) as $childId)
+		foreach($children as $child)
 		{
-			$child = Mage::getModel('catalog/category')->load($childId);
+
 			if($child->getIsActive()&&$child->getInclude_in_menu())
 			{
 				$html .= '<li class="level-'.$parentLevel.'" >';
