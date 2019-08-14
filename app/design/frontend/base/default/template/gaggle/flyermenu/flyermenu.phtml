@@ -142,11 +142,11 @@
 					{
 						removeClassName(this.childNodes[0],'arrow-up');
 						addClassName(this.childNodes[0],'arrow-down');
-						addClassName(this.parentNode.parentNode.getElementsByTagName('ul')[0],'active');
+						addClassName(this.parentNode.getElementsByTagName('ul')[0],'active');
 					}
 					else
 					{
-						removeClassName(this.parentNode.parentNode.getElementsByTagName('ul')[0],'active');
+						removeClassName(this.parentNode.getElementsByTagName('ul')[0],'active');
 						removeClassName(this.childNodes[0],'arrow-down');
 						addClassName(this.childNodes[0],'arrow-up');
 					}

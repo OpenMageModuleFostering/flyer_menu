@@ -3,10 +3,10 @@
     "type": "magento-module",
     "license": "Open-Software-License-(OSL-3.0)",
     "homepage": "",
-    "description": "Flyermenu",
+    "description": "Gaggle_FlyerMenu",
     "authors": [
     {
-        "name": "Gaggle",
+        "name": "Gaggle_FlyerMenu",
         "email": "gaggle.thread@gmail.com"
     }
 ],
