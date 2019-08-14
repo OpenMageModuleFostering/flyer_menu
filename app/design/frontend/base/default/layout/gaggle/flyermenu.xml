@@ -1,0 +1,14 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0"> 
+	<default>
+		<reference name="head">		
+			<action method="addCss"><stylesheet>gaggle/flyermenu/css/styles.css</stylesheet></action>
+		</reference>		
+		<reference name="after_body_start">
+			<block type="flyermenu/flyermenu" name="flyermenu" as="flyermenu"  template="gaggle/flyermenu/flyermenu.phtml"/>
+		</reference>
+		
+	 </default>
+ 
+</layout>   
+	

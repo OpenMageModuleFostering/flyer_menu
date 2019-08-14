@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>flyer_menu</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL 3.0)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Flyermenu</summary>
+    <description>Flyermenu</description>
+    <notes>Flyermenu</notes>
+    <authors><author><name>Gaggle</name><user>Any</user><email>gaggle.thread@gmail.com</email></author></authors>
+    <date>2015-03-20</date>
+    <time>18:36:18</time>
+    <contents><target name="magelocal"><dir name="Gaggle"><dir name="Flyermenu"><dir name="Block"><file name="Flyermenu.php" hash="fae5114328accb1fa900acf765cfbc5e"/></dir><dir name="Helper"><file name="Data.php" hash="d6c0187663c04a9f2fd9c78d22182ae1"/></dir><dir name="Model"><file name="Options.php" hash="7468f87b46660b44989dbedc7f3d7a97"/></dir><dir name="controllers"><file name="IndexController.php" hash="60cee570a2251f12cb67bb1b762285e9"/></dir><dir name="etc"><file name="adminhtml.xml" hash="bbb92272e1972c7a3b22ba434f04e10a"/><file name="config.xml" hash="5ee7d5d77793a07de1ca66fb99ca7c94"/><file name="system.xml" hash="a9287e71ec6106afd4c4fe9db58d883d"/></dir><dir name="sql"><dir name="flyermenu_setup"><file name="mysql4-install-1.0.0.php" hash="ec6570a3301cd0099203c736962c9040"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Gaggle_Flyermenu.xml" hash="580078936bd0394519461d31f18343de"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="gaggle"><file name="flyermenu.xml" hash="a71d66443125bf6543dc26aed36ae012"/></dir></dir><dir name="template"><dir name="gaggle"><dir name="flyermenu"><file name="flyermenu.phtml" hash="eb2c833ae50e3a31f4dba416c88e0e4f"/></dir></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="gaggle"><dir name="flyermenu"><dir name="css"><file name="styles.css" hash="73346c691554c3b392fa089deef2b72d"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

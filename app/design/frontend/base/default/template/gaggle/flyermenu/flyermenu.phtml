@@ -1,0 +1,163 @@
+<?php if($this->isEnabled()){ ?>
+<button class="flyermenu-toggle" onclick="showMenu()">
+	<span></span>
+	<span></span>
+	<span></span>
+</button>
+<nav class="menu <?php echo $this->getSlideType() ?>" id="gaggle-flyermenu">
+	<div class="close_btn_wrap"><button class="close-menu">Close</button></div>
+	<?php echo $this->getMenuHtml() ?>
+	<?php 
+	//echo $this->getLayout()->createBlock('page/html_topmenu')->setTemplate('page/html/topmenu.phtml')->toHtml();
+	?>
+</nav>
+<script type="text/javascript">
+
+	/* var textColor='#<?php echo $this->getTextColor() ?>'; */
+	/* var buttonLinesColor='#<?php echo $this->getButtonLinesColor() ?>'; */
+	currentNav="<?php echo $this->getSlideType() ?>";
+	activeNav='';
+	toggleSlide = document.querySelector( ".<?php echo $this->getSlideType() ?>" );
+	mask = document.createElement("div");
+	mask.className = "mask";
+
+
+	/* sQuery('nav.menu a').style.color=textColor; */
+	/* addStyle(sQuery('nav.menu').getElementsByTagName('a'),'color',textColor); */
+	/* addStyle(sQuery('.flyermenu-toggle').getElementsByTagName('span'),'background',buttonLinesColor); */
+	function addStyle(elements,type,value){
+		for(var index in elements)
+		{
+			if(typeof elements[index]=='object')
+			{
+				if(type=='background')
+				{
+					elements[index].style.background=value;
+				}
+				else
+				if(type=='color')
+				{
+					elements[index].style.color=value;
+				}
+			}
+		}
+	}
+	 function showMenu(){
+		
+		if(currentNav=='toggle-slide-left'||currentNav=='slide-menu-left')
+		{
+			addClassName( sQuery('body'), "sml-open" );
+			document.body.appendChild(mask);
+			activeNav = "sml-open";
+		}
+		else
+		if(currentNav=='toggle-slide-right'||currentNav=='slide-menu-right')
+		{
+			addClassName( sQuery('body'), "smr-open" );
+			document.body.appendChild(mask);
+			activeNav = "smr-open";
+		}
+		if(currentNav=='toggle-slide-top'||currentNav=='slide-menu-top')
+		{
+			addClassName( sQuery('body'), "smt-open" );
+			document.body.appendChild(mask);
+			activeNav = "smt-open";
+		}
+		if(currentNav=='toggle-slide-bottom'||currentNav=='slide-menu-bottom')
+		{
+			addClassName( sQuery('body'), "smb-open" );
+			document.body.appendChild(mask);
+			activeNav = "smb-open";
+		}
+		if(currentNav=='toggle-push-left'||currentNav=='push-menu-left')
+		{
+			addClassName( sQuery('body'), "pml-open" );
+			document.body.appendChild(mask);
+			activeNav = "pml-open";
+		}
+		if(currentNav=='toggle-push-right'||currentNav=='push-menu-right')
+		{
+			addClassName(sQuery('body'), "pmr-open" );
+			document.body.appendChild(mask);
+			activeNav = "pmr-open";
+		}
+		if(currentNav=='toggle-push-top'||currentNav=='push-menu-top')
+		{
+			addClassName( sQuery('body'), "pmt-open" );
+			document.body.appendChild(mask);
+			activeNav = "pmt-open";
+		}
+		if(currentNav=='toggle-push-bottom'||currentNav=='push-menu-bottom')
+		{
+			addClassName( sQuery('body'), "pmb-open" );
+			document.body.appendChild(mask);
+			activeNav = "pmb-open";
+		}
+		
+	
+	} 
+
+
+	sQuery('.close_btn_wrap .close-menu').onclick=function(){
+		removeClassName( sQuery('body'), activeNav );
+		activeNav = "";
+		document.body.removeChild(mask);
+	}
+	/* hide active menu if mask is clicked */
+	mask.addEventListener( "click", function(){
+		removeClassName( sQuery('body'), activeNav );
+		activeNav = "";
+		document.body.removeChild(mask);
+	} );
+	/*****function for adding class********/
+		function addClassName(element, className)
+		{
+			 if (!hasClassName(element, className))
+			  element.className += (element.className ? ' ' : '') + className;
+			return element;
+		}
+		/*****function for remove class********/
+		function removeClassName(element, className)
+		{
+			 element.className = element.className.replace(
+			new RegExp("(^|\\s+)" + className + "(\\s+|$)"), ' ').strip();
+			return element;
+		}
+		/*****function for checking class********/
+			function hasClassName(element, className)
+			{
+				var elementClassName = element.className;
+				return (elementClassName.length > 0 && (elementClassName == className ||
+				new RegExp("(^|\\s)" + className + "(\\s|$)").test(elementClassName)));
+			}
+		
+		elements=document.getElementsByClassName('arrow-wrap');
+		for(var index in elements)
+		{
+			if(typeof elements[index]=='object')
+			{
+
+				elements[index].onclick=function(){
+					if(hasClassName(this.childNodes[0],'arrow-up'))
+					{
+						removeClassName(this.childNodes[0],'arrow-up');
+						addClassName(this.childNodes[0],'arrow-down');
+						addClassName(this.parentNode.parentNode.getElementsByTagName('ul')[0],'active');
+					}
+					else
+					{
+						removeClassName(this.parentNode.parentNode.getElementsByTagName('ul')[0],'active');
+						removeClassName(this.childNodes[0],'arrow-down');
+						addClassName(this.childNodes[0],'arrow-up');
+					}
+				}
+
+				
+			}
+		}
+		function sQuery(query)
+		{
+			return document.querySelector(query);
+		}
+</script>
+<?php } ?>
