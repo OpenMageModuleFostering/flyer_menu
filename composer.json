@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/flyer_menu",
+    "name": "OpenMageModuleFostering\/flyer_menu",
     "type": "magento-module",
     "license": "Open-Software-License-(OSL-3.0)",
     "homepage": "",
     "description": "Gaggle_FlyerMenu",
     "authors": [
-    {
-        "name": "Gaggle_FlyerMenu",
-        "email": "gaggle.thread@gmail.com"
-    }
-],
+        {
+            "name": "Gaggle_FlyerMenu",
+            "email": "gaggle.thread@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
